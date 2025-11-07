@@ -1,1 +1,44 @@
+# Thanksgiving Shopping Optimizer
 
+# --- Inputs ---
+items = [
+    ("Turkey", "Meat", 10),
+    ("Potatoes", "Produce", 5),
+    ("Green Beans", "Produce", 3),
+    ("Rolls", "Bakery", 4),
+    ("Pumpkin Pie", "Bakery", 5),
+    ("Butter", "Dairy", 2),
+    ("Milk", "Dairy", 2),
+    ("Cranberry Sauce", "Canned Goods", 3)
+]
+
+time_at_store = 30   # minutes you can spend shopping
+time_to_store = 15   # minutes to drive one way
+
+# --- Calculations ---
+# Sort items by priority (manually or automatically by time needed)
+# You can modify this list order based on your must-have items.
+items_sorted = sorted(items, key=lambda x: x[2])  # sort by time per section
+
+total_shopping_time = 0
+route = []
+
+for item, section, time_needed in items_sorted:
+    if total_shopping_time + time_needed <= time_at_store:
+        total_shopping_time += time_needed
+        route.append((section, item, time_needed))
+    else:
+        break  # stop if we run out of time
+
+# --- Outputs ---
+print("🦃 Optimized Thanksgiving Trip Route 🦃")
+visited_sections = []
+for section, item, time_needed in route:
+    if section not in visited_sections:
+        print(f"\nSection: {section}")
+        visited_sections.append(section)
+    print(f"  - {item} ({time_needed} min)")
+
+print(f"\nTotal Store Time: {total_shopping_time} minutes")
+print(f"Driving Time: {time_to_store * 2} minutes round trip")
+print(f"Total Trip Time: {total_shopping_time + (time_to_store * 2)} minutes
