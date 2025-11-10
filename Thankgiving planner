@@ -1,0 +1,14 @@
+items = input("Enter number of Thanksgiving items to buy: ")
+time_at_store = input("Enter time you can spend at the store (minutes): ")
+time_to_store = input("Enter one-way drive time to the store (minutes): ")
+
+items = int(items)
+time_at_store = int(time_at_store)
+time_to_store = int(time_to_store)
+
+total_drive_time = time_to_store * 2
+total_trip_time = time_at_store + total_drive_time
+
+print("You have", items, "items to buy.")
+print("Total driving time:", total_drive_time, "minutes.")
+print("Total trip time (shopping + driving):", total_trip_time, "minutes.")
