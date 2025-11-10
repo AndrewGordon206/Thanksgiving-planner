@@ -1,0 +1,9 @@
+weight = input("Enter turkey weight (pounds): ")
+cost_per_pound = input("Enter cost per pound: ")
+
+weight = float(weight)
+cost_per_pound = float(cost_per_pound)
+
+total_cost = weight * cost_per_pound
+
+print("The total cost of the turkey is $", total_cost)
