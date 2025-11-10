@@ -1,0 +1,9 @@
+desserts = input("Enter total number of desserts: ")
+guests = input("Enter number of guests: ")
+
+desserts = int(desserts)
+guests = int(guests)
+
+desserts_per_guest = desserts / guests
+
+print("Each guest gets", desserts_per_guest, "desserts.")
